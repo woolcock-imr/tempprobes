@@ -10,6 +10,9 @@ How to connect the data source to this wep application?
    b. run server.js.start.bat (double click this file)  
    c. wait untill you see the message: The server is listening...  
      
-   * you have to do this step after you restart your computer every time
+   Important: you have to do this step after you restart your computer every time
    
 4. Open https://tempprobes.rt.org.au/ in your web browser
+
+
+Contact me if you have any problems
