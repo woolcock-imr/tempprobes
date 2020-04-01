@@ -1,0 +1,98 @@
+<div id=D__ID>
+	<div>
+		<div id=toolbar__ID class="navbar navbar-default" style='margin-bottom:0px;padding-left:6px;'>
+			<div class="form-inline">
+				&nbsp;Probe: <select id=probe__ID class="form-control" style='margin-right:3px;width:auto;float:left;'>
+					<option>---</option>
+					<option >TC1</option>
+					<option >Protein Area</option>
+				</select>
+				&nbsp;&nbsp;Start Date:&nbsp; <input  type=date   class="form-control"      id=start_date__ID style='width:200px;display:inline-block' />
+				&nbsp;&nbsp;End Date:&nbsp; <input  type=date   class="form-control"      id=end_date__ID style='width:200px;display:inline-block' />
+				<button type=button class='btn btn-secondary' id=query__ID>Query</button>
+				<!--<button type=button class='btn btn-secondary' id=export__ID>Export</button>-->
+			</div>
+			<span id=elapsed__ID style='float:right'></span>
+		</div>
+		<div style='overflow-x:auto;white-space: nowrap; padding-left:2px;padding-right:2px'>
+			<table id=table__ID>
+				<thead id=thead__ID></thead>
+				<tbody id=tbody__ID></tbody>
+			</table>
+		</div>
+		<style>
+			#table__ID   {	min-width:1200px; width:100%;	border: 1px #888 solid; 	font-size:9pt; 	font-family:Verdana; 	border-spacing: 0;	border-collapse: collapse;	table-layout:fixed;}
+			#table__ID th{ 	border: 1px solid #ddd; 	padding:0px; 	margin:0px; 	text-align:center;	background-color:#bbb}
+			#table__ID td{ 	border: 1px solid #ddd;		padding-top:2px; 	padding-bottom:2px; 	margin:0px; 	white-space: nowrap; }
+			#D__ID{ background-color:#fff;}
+			#table__ID thead tr{
+				height:28px;
+			}
+			#table__ID u{
+				cursor:pointer;
+			}
+			#toolbar__ID{
+				background-color:#ccc;
+				padding:5px 0px;
+				margin-bottom:0px;
+				overflow:hidden
+			}
+			#toolbar__ID *{
+				margin-right:3px;
+			}
+		</style>
+		<div id=table__ID>
+			<table id=grid__ID></table>
+		</div>
+	</div>
+    <script>
+        function F__ID(){
+			//-------------------------------------
+			VmInclude:__COMPONENT__/g/grid.01.js
+			//-------------------------------------
+			m.fields="date,v1,v2,v3,v4";
+			//-------------------------------------
+			$('#query__ID').on('click',function(){
+				var probe=$('#probe__ID').val();
+				var probe_number="";
+				if(probe=="---") probe="TC1";
+				switch(probe){
+					case "TC1": 			probe_number="10940154"; m.fields="Probe_Number,Probe_Name, Date|date,TC1_fridge|v1, TC1_freezer|v2"; break;
+					case "Protein Area": 	probe_number="10940154"; m.fields="Probe_Number,Probe_Name, Date|date,Protein area 4C|v1, Protein area -20|v2"; break;
+				}
+				
+				var start_date=$('#start_date__ID').val();
+				var end_date=$('#end_date__ID').val();
+				if(start_date=="") start_date="2020-01-01";
+				if(end_date=="") end_date="2020-01-01";
+				$vm.request({cmd:"report",probe:probe_number,start_date:start_date,end_date:end_date},function(res){
+					if(res.error!=""){
+						alert(res.error);
+						$('#grid__ID').html('');
+						return;
+					}
+					m.records=res.result;
+					for(var i=0;i<m.records.length;i++){
+						m.records[i].Probe_Number=probe_number;
+						m.records[i].Probe_Name=probe;
+					}
+					m.render();
+				})
+			})
+		}
+        
+    </script>
+    <style>
+    	VmInclude:__COMPONENT__/g/grid.01.css
+    	#D__ID{
+    		animation: vm_module_fadein 1.0s;
+    		background: rgba(255,255,255,1);
+    		color:#283f55;
+            font-size:10pt;
+            font-family: Verdana,Helvetica,Arial,sans-serif;
+    	}
+    	#page__ID{
+            padding:10px 0 0 20px;
+        }
+    </style>
+</div>
