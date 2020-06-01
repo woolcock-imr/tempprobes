@@ -73,18 +73,18 @@
 				probe=$('#probe__ID').val();
 				if(probe=="---") probe="TC1";
 				switch(probe){
-					case "TC1": 				probe_number="10940154"; m.fields="Probe_Number,Probe_Name, Date|date,TC1_fridge|v1, TC1_freezer|v2"; break;
-					case "Protein Area": 		probe_number="10940157"; m.fields="Probe_Number,Probe_Name, Date|date,Protein area 4C|v1, Protein area -20|v2"; break;
-					case "TC2+": 				probe_number="10940158"; m.fields="Probe_Number,Probe_Name, Date|date,TC2 -20 freezer 9|v1, TC2 -20 freezer 10|v2, TC2 Incub E2|v4"; break;
-					case "TC3+": 				probe_number="10940159"; m.fields="Probe_Number,Probe_Name, Date|date,PCR -20 freezer 11|v1, PCR -20 freezer|v2, TC3 incub E1|v3"; break;
-					case "probe167": 			probe_number="17964570"; m.fields="Probe_Number,Probe_Name, Date|date,probe 167 -80|v1"; break;
-					case "minus80C Freezer E": 	probe_number="8962131"; m.fields="Probe_Number,Probe_Name, Date|date,-80 freezer E|v1"; break;
-					case "minus80C Freezer A": 	probe_number="08963150"; m.fields="Probe_Number,Probe_Name, Date|date,-80 Freezer A|v1"; break;
-					case "minus80C Freezer X": 	probe_number="08963151"; m.fields="Probe_Number,Probe_Name, Date|date,-80 Freezer X|v1"; break;
-					case "minus80C Freezer Y": 	probe_number="08963148"; m.fields="Probe_Number,Probe_Name, Date|date,-80 Freezer Y|v1"; break;
-					case "TPRh Sensor": 		probe_number="8960269"; m.fields="Probe_Number,Probe_Name, Date|date,Temp Rm 3032|v1,Humidity 3032|v2,Dew point 3032|v3,Pressure 3032|v4"; break;
-					case "minus80C Freezer C": 	probe_number="08963147"; m.fields="Probe_Number,Probe_Name, Date|date,-80 Freezer C|v1"; break;
-					case "Pharmacy": 			probe_number="11940683"; m.fields="Probe_Number,Probe_Name, Date|date,Pharmacy fridge and room|v1,Pharmacy Room temp|v2"; break;
+					case "TC1 fridge_freezer": 			probe_number="10940154"; m.fields="Probe_Number,Probe_Name, Date|date,TC1_fridge|v1, TC1_freezer|v2"; break;
+					case "Fridge_Freezer_entry": 		probe_number="10940157"; m.fields="Probe_Number,Probe_Name, Date|date,Protein area 4C|v1, Protein area -20|v2,Protein area -20 left|v3, Protein area -20 right|v4"; break;
+					case "TC2+ fridge_freezer": 		probe_number="10940158"; m.fields="Probe_Number,Probe_Name, Date|date,TC2 -20 freezer 9|v1, TC2 -20 freezer 10|v2, TC2 Incub E2|v4"; break;
+					case "TC3+ fridge_freezer": 		probe_number="10940159"; m.fields="Probe_Number,Probe_Name, Date|date,PCR -20 freezer 11|v1, PCR -20 freezer|v2, TC3 incub E1|v3"; break;
+					case "probe167": 					probe_number="17964570"; m.fields="Probe_Number,Probe_Name, Date|date,probe 167 -80|v1"; break;
+					case "Freezer E": 					probe_number="8962131"; m.fields="Probe_Number,Probe_Name, Date|date,-80 freezer E|v1"; break;
+					case "Freezer A": 					probe_number="08963150"; m.fields="Probe_Number,Probe_Name, Date|date,-80 Freezer A|v1"; break;
+					case "Freezer X": 					probe_number="08963151"; m.fields="Probe_Number,Probe_Name, Date|date,-80 Freezer X|v1"; break;
+					case "Freezer Y": 					probe_number="08963148"; m.fields="Probe_Number,Probe_Name, Date|date,-80 Freezer Y|v1"; break;
+					case "Room 3032": 					probe_number="8960269"; m.fields="Probe_Number,Probe_Name, Date|date,Temp Rm 3032|v1,Humidity 3032|v2,Dew point 3032|v3,Pressure 3032|v4"; break;
+					case "Freezer C": 					probe_number="08963147"; m.fields="Probe_Number,Probe_Name, Date|date,-80 Freezer C|v1"; break;
+					case "Pharmacy fridge and room": 	probe_number="11940683"; m.fields="Probe_Number,Probe_Name, Date|date,Pharmacy fridge and room|v1,Pharmacy Room temp|v2"; break;
 				}
 				
 				var start_date=$('#start_date__ID').val();
